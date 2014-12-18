@@ -9,10 +9,12 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         db.alter_column('taggit_tag', 'name', self.gf('django.db.models.fields.CharField')(max_length=255))
+        db.alter_column('taggit_tag', 'slug', self.gf('django.db.models.fields.CharField')(max_length=255))
 
 
     def backwards(self, orm):
         db.alter_column('taggit_tag', 'name', self.gf('django.db.models.fields.CharField')(max_length=100))
+        db.alter_column('taggit_tag', 'slug', self.gf('django.db.models.fields.CharField')(max_length=100))
 
 
     models = {
